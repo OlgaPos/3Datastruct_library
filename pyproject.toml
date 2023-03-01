@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "3datastruct-library"
+version = "0.1.0"
+description = ""
+authors = ["Olga_Pos <olga-posp@yandex.ru>"]
+readme = "README.md"
+packages = [{include = "3datastruct_library"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
