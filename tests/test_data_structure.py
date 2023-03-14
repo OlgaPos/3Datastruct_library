@@ -5,8 +5,6 @@ from scr.data_structure import Node, Stack
 class TestNode(unittest.TestCase):
     """Тест класса Node"""
 
-    # def setUp(self) -> None:
-
     def test_node_init(self):
         """Проверим, что значение передаётся в узел"""
         node = Node(10)
@@ -29,5 +27,10 @@ class TestStack(unittest.TestCase):
 
     def test_push(self):
         """Проверим, что данные записались и вызываются из стэка корректно"""
-        self.assertEqual(self.stack.top.data, 3)
-        self.assertEqual(self.stack.top.next_node.data, 2)
+        self.assertEqual(self.stack.top.data, 2)
+        self.assertEqual(self.stack.top.next_node.data, 1)
+        self.assertEqual(self.stack.top.next_node.next_node, None)
+
+    def test_pop(self):
+        """Проверим, что данные удаляются из стэка корректно"""
+        self.assertEqual(self.stack.pop(), 3)
