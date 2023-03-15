@@ -1,5 +1,6 @@
 import unittest
 from scr.data_structure import Node, Stack
+from scr.custom_queue import *
 
 
 class TestNode(unittest.TestCase):
@@ -34,3 +35,6 @@ class TestStack(unittest.TestCase):
     def test_pop(self):
         """Проверим, что данные удаляются из стэка корректно"""
         self.assertEqual(self.stack.pop(), 3)
+
+
+
