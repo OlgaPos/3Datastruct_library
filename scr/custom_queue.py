@@ -29,6 +29,14 @@ class Queue:
             self.tail.next_node = new_node
             self.tail = new_node
 
+    def dequeue(self):
+        """Удаляем данные из начала очереди"""
+        if self.head is None:
+            return None
+        data = self.head.data
+        self.head = self.head.next_node
+        return data
+
 
 if __name__ == '__main__':
     queue = Queue()
@@ -37,7 +45,13 @@ if __name__ == '__main__':
     queue.enqueue('data3')
 
     print(queue.head.data)
-    print(queue.head.next_node.data)
-    print(queue.tail.data)
-    print(queue.tail.next_node)
-    print(queue.tail.next_node.data)
+    # print(queue.head.next_node.data)
+    # print(queue.tail.data)
+    # print(queue.tail.next_node)
+    # print(queue.tail.next_node.data)
+
+    print(queue.dequeue())
+    print(queue.dequeue())
+    print(queue.dequeue())
+    print(queue.dequeue())
+
