@@ -1,13 +1,4 @@
-class Node:
-
-    def __init__(self, data, next_node=None):
-        """
-        Инициализация узла
-        :param data: данные
-        :param next_node: ссылка на следующий узел
-        """
-        self.data = data
-        self.next_node = next_node
+from scr.data_structure import Node
 
 
 class Queue:
@@ -35,6 +26,8 @@ class Queue:
             return None
         data = self.head.data
         self.head = self.head.next_node
+        if self.head is None:
+            self.tail = None
         return data
 
 
@@ -45,13 +38,12 @@ if __name__ == '__main__':
     queue.enqueue('data3')
 
     print(queue.head.data)
-    # print(queue.head.next_node.data)
-    # print(queue.tail.data)
-    # print(queue.tail.next_node)
-    # print(queue.tail.next_node.data)
+    print(queue.head.next_node.data)
+    print(queue.tail.data)
+    print(queue.tail.next_node)
+    # print(queue.tail.next_node.data)  # tail.next_node не имеет data - возвращает ошибку
 
     print(queue.dequeue())
     print(queue.dequeue())
     print(queue.dequeue())
     print(queue.dequeue())
-

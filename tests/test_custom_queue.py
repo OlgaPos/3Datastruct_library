@@ -3,10 +3,11 @@ from scr.custom_queue import *
 
 
 class TestQueue(unittest.TestCase):
-    queue = Queue()
-    queue.enqueue('data1')
-    queue.enqueue('data2')
-    queue.enqueue('data3')
+    def setUp(self) -> None:
+        self.queue = Queue()
+        self.queue.enqueue('data1')
+        self.queue.enqueue('data2')
+        self.queue.enqueue('data3')
 
     def test_enqueue(self):
         self.assertEqual(self.queue.head.data, 'data1')
