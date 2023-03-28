@@ -51,12 +51,66 @@ class LinkedList:
         ll_string += ' None'
         print(ll_string)
 
+    def to_list(self) -> list:
+        """Записываем в список данные из односвязанного списка"""
+        _list = []
+        node = self.head
+        while node is not None:
+            _list.append(node.data)
+            node = node.next_node
+        return _list
+
+    def get_data_by_id(self, id: int) -> dict:
+        """По ключу возвращаем словарь из односвязанного списка"""
+        _list = self.to_list()
+        try:
+            for item in _list:
+                if type(item) == dict and item['id'] == id:
+                    return item
+            else:
+                raise TypeError
+        except TypeError:
+            print('Данные не являются словарем или в словаре нет id')
+
 
 if __name__ == '__main__':
+    # ll = LinkedList()
+    #
+    # ll.insert_beginning({'id': 1, 'username': 'lazzy508509'})
+    # ll.insert_at_end({'id': 2, 'username': 'mik.roz'})
+    # ll.insert_at_end({'id': 3, 'username': 'mosh_s'})
+    # ll.insert_beginning({'id': 0, 'username': 'serebro'})
+
+    # метод to_list()
+    # lst = ll.to_list()
+    # for item in lst: print(item)
+    # {'id': 0, 'username': 'serebro'}
+    # {'id': 1, 'username': 'lazzy508509'}
+    # {'id': 2, 'username': 'mik.roz'}
+    # {'id': 3, 'username': 'mosh_s'}
+
+    # get_data_by_id()
+    # user_data = ll.get_data_by_id(3)
+    # print(user_data)
+    # {'id': 3, 'username': 'mosh_s'}
+    #
+    # # работа блока try/except
     ll = LinkedList()
-    ll.insert_beginning({'id': 1})
-    ll.insert_at_end({'id': 2})
-    ll.insert_at_end({'id': 3})
-    ll.insert_beginning({'id': 0})
-    ll.print_ll()
+    ll.insert_beginning({'id': 1, 'username': 'lazzy508509'})
+    ll.insert_at_end('idusername')
+    ll.insert_at_end([1, 2, 3])
+    ll.insert_at_end({'id': 2, 'username': 'mosh_s'})
+    #
+    user_data = ll.get_data_by_id(2)
+    # # Данные не являются словарем или в словаре нет id.
+    # # Данные не являются словарем или в словаре нет id.
+    print(user_data)
+    # {'id': 2, 'username': 'mosh_s'}
+
+    # ll = LinkedList()
+    # ll.insert_beginning({'id': 1})
+    # ll.insert_at_end({'id': 2})
+    # ll.insert_at_end({'id': 3})
+    # ll.insert_beginning({'id': 0})
+    # ll.print_ll()
     # {'id': 0} -> {'id': 1} -> {'id': 2} -> {'id': 3} -> None
